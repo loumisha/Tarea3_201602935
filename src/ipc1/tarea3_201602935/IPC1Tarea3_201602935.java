@@ -1,4 +1,4 @@
-meropackage ipc1.tarea3_201602935;
+package ipc1.tarea3_201602935;
 import java.util.Scanner;
 
 public class IPC1Tarea3_201602935 {
@@ -87,49 +87,59 @@ public class IPC1Tarea3_201602935 {
    }
    Scanner var = new Scanner(System.in);
    int numero=0;
+   String num = "";
    int contador =0;
-   int posicion = 0;
+   int posicion;
+   int resultado;
    public void Contador(){
        System.out.println("1. Ingresar número");
-       System.out.println("2. Mostrar número de digitos");
-       System.out.println("3. Ingresar número a buscar");
+       System.out.println("2. Ingresar número a buscar");
+       System.out.println("3. Mostrar número de digitos");
        System.out.println("4. Menú principal");
        String eleccion = var.nextLine();
-       int[]digitos;
        switch(eleccion){
            case "1":
                a.Case1();
                a.Contador();
            break;
-           
-           
            case "2":
-               while(numero !=0){
-                   numero = numero/10;
-                   contador++;
-               }
-               System.out.println(contador + " digitos ");
+               num = Integer.toString(numero);//Convertir un entero a un string
+               char[] valores =num.toCharArray();// de un string a un char
+               int i;
+               System.out.println("Ingrese la posición que desea");
+               i = var.nextInt();
+               if(i< valores.length){
+                    System.out.println("El Valor " + valores[i]+" Ocupa el : " +(i)+" Lugar");
+                   }
+                   else{
+                       System.out.println("Esa posición no existe");
+                   }
                a.Contador();
                break;
            case "3":
-               System.out.println(" Ingrese la posición que desea entre 0-9 ");
-               posicion = var.nextInt();
-               if(posicion>contador){
-                  System.out.println("No existe posicion" + posicion);  
-               }
-               else{
-                   posicion = numero%10;
-                   numero = numero/10;
-               }
+               a.Case3();
+               a.Contador();
                break;
+           
            case "4":
-              
+              //pendiente
+           default:
+               System.out.println("Opción inválida");
+               break;
        }
    }
    public void Case1(){
        System.out.println("Ingresar un número");
                numero = var.nextInt();
                a.Contador();
+   }
+   public void Case3(){
+        while(numero !=0){
+                   numero = numero/10;
+                   contador++;
+               }
+               System.out.println(contador + " digitos ");
+       
    }
    
    
@@ -198,6 +208,31 @@ public class IPC1Tarea3_201602935 {
       
    
    public void Promedio(){
-       System.out.print(" PENDIENTE");
+        a.Llenarprom();
+       
    }
+   public void Llenarprom(){
+       String encabezado[] = new String[5];
+       
+       Scanner var = new Scanner(System.in);
+       
+       
+           /*System.out.println("Ingrese ID");
+           id = var.nextInt();
+           System.out.println("Ingresar" +(i+1)+"nota");
+           n1 = var.nextInt();
+           System.out.println("Ingresar" +(i+1)+"nota");
+           n2 = var.nextInt();
+           System.out.println("Ingresar" +(i+1)+"nota");
+           n3 = var.nextInt();
+           System.out.println("Ingresar" +(i+1)+"nota");
+           n4 = var.nextInt();
+           i++;  */
+       
+          
+           
+       
+       
+   }
+   
 }
