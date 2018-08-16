@@ -23,6 +23,12 @@ public class IPC1Tarea3_201602935 {
             case "3":
                 a.TresNumeros();
                 break;
+            case "4":
+                a.Promedio();
+                break;
+            default:
+                System.out.println("Opción inválida");
+                break;
         }
     }
    
@@ -144,16 +150,11 @@ public class IPC1Tarea3_201602935 {
    
    
       
-   int num1, num2, num3, menor, medio, mayor;
+   private int num1 = 0, num2= 0, num3= 0, menor= 0, medio= 0, mayor= 0;
+       
    public void TresNumeros(){
        // Tres numeros de mayor a menor
        
-       num1 = 0;
-       num2 = 0;
-       num3 = 0;
-       menor = 0;
-       medio = 0;
-       mayor =0;
        Scanner var = new Scanner(System.in);
        System.out.println("1. Ingresar numeros");
        System.out.println("2. Mostrar ordenados");
@@ -167,6 +168,7 @@ public class IPC1Tarea3_201602935 {
                num2 = var.nextInt();
                System.out.println("Ingrese tercer número ");
                num3 = var.nextInt();
+               System.out.println(num1+" "+num2+" "+num3);//revisar
                if(num1<num2 && num2<num3){
                    menor = num1;
                    medio = num2;
@@ -203,36 +205,42 @@ public class IPC1Tarea3_201602935 {
                break;
            }
        }
-       
- 
-      
-   
    public void Promedio(){
-        a.Llenarprom();
-       
-   }
-   public void Llenarprom(){
-       String encabezado[] = new String[5];
-       
-       Scanner var = new Scanner(System.in);
-       
-       
-           /*System.out.println("Ingrese ID");
-           id = var.nextInt();
-           System.out.println("Ingresar" +(i+1)+"nota");
-           n1 = var.nextInt();
-           System.out.println("Ingresar" +(i+1)+"nota");
-           n2 = var.nextInt();
-           System.out.println("Ingresar" +(i+1)+"nota");
-           n3 = var.nextInt();
-           System.out.println("Ingresar" +(i+1)+"nota");
-           n4 = var.nextInt();
-           i++;  */
-       
-          
-           
-       
-       
+       a.Llenarprom();
    }
    
-}
+   public void Llenarprom(){
+        int id =0, n1=0, n2=0, n3=0, n4 =0, prom=0;
+        String[] encabezado = {"ID", "N1","N2","N3", "N4", "PROM"}; 
+        int [][] matriz = new int[6][6] ;
+        Scanner var = new Scanner(System.in);
+        for(int i=0; i<6;i++){
+            System.out.print("| "+encabezado[i]+" |");
+        }
+        System.out.println();
+        
+        
+        for( int i=0;i<6;i++){
+            for( int j= 0; j<6; j++){
+           System.out.println("Ingrese ID");
+           id = var.nextInt();
+           System.out.println("Ingresar  primer nota");
+           n1 = var.nextInt();
+           System.out.println("Ingresar segunda nota");
+           n2 = var.nextInt();
+           System.out.println("Ingresar tercer nota");
+           n3 = var.nextInt();
+           System.out.println("Ingresar cuarta nota");
+           n4 = var.nextInt();
+           //System.out.println("SIGUIENTE ESTUDIANTE");
+           i++;
+           }
+            System.out.println(" ");
+        }
+        for( int i=0;i<6;i++){
+            for( int j= 0; j<6; j++){
+              System.out.println(matriz[i][j]);  
+            }
+        }
+    }  
+ }
