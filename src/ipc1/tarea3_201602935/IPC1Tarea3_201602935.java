@@ -198,6 +198,8 @@ public class IPC1Tarea3_201602935 {
                break;
         }
     }
+    String[] encabezado = {"ID", "N1","N2","N3", "N4", "PROM"}; 
+    int [][] matriz = new int[6][6] ;
     public void Promedio(){
       System.out.println("1. Ingresar notas");
       System.out.println("2. Mostrar promedio");
@@ -205,32 +207,43 @@ public class IPC1Tarea3_201602935 {
       int eleccion = var.nextInt();
       switch(eleccion){
           case 1:
-              int id =0, n=0, prom=0, suma=0;
               for( int i=0;i<6;i++){
-                    for( int j= 0; j<6; j++){
-                        System.out.println("Ingrese ID");
-                        n = var.nextInt();
-                        System.out.println("Ingresar  primer nota");
-                        n = var.nextInt();
-                        System.out.println("Ingresar segunda nota");
-                        n = var.nextInt();
-                        System.out.println("Ingresar tercer nota");
-                        n= var.nextInt();
-                        System.out.println("Ingresar cuarta nota");
-                        n= var.nextInt();
-                    }
+                     System.out.println("Ingrese ID" + i );
+                     matriz[i][0] = var.nextInt();
+                     System.out.println("Ingresar  primer nota");
+                     matriz[i][1] = var.nextInt();
+                     System.out.println("Ingresar segunda nota");
+                     matriz[i][2] = var.nextInt();
+                     System.out.println("Ingresar tercer nota");
+                     matriz[i][3]= var.nextInt();
+                     System.out.println("Ingresar cuarta nota");
+                     matriz[i][4]= var.nextInt();
+                     matriz[i][5]=((matriz[i][1]+matriz[i][2]+matriz[i][3]+matriz[i][4])/4);
                 }
-          break;
+              a.Promedio();
+                break;
           case 2:
-          break;
+                a.imprimir(matriz, encabezado);
+                break;
+          case 3:
+              a.menu();
+              break;
+          default:
+              System.out.println("Opción inválida");
+              a.Promedio();
+              break;
         }
     }
-    public void Llenarprom(){
-        String[] encabezado = {"ID", "N1","N2","N3", "N4", "PROM"}; 
-        int [][] matriz = new int[6][6] ;
-        Scanner var = new Scanner(System.in);
+    public void imprimir(int matriz[][], String encabezado[]){
         for(int i=0; i<6;i++){
-            System.out.print("| "+encabezado[i]+" |");
+            System.out.print("|" + encabezado[i] + "|");
         }
-   }    
-}
+        System.out.println(" ");
+        for (int i = 0; i<6; i++){
+            for(int j=0; j<6; j++){
+                System.out.print(" | " + matriz[i][j] + " | ");
+            }
+            System.out.println("");
+        }
+    }
+} 
