@@ -100,6 +100,7 @@ public class IPC1Tarea3_201602935 {
     int posicion;
     int resultado;
     public void Contador(){
+        //Me regresa dos veces seguidas  al menu pero si realiza todas las operaciones, buscar error
        System.out.println("1. Ingresar número");
        System.out.println("2. Ingresar número a buscar");
        System.out.println("3. Mostrar número de digitos");
